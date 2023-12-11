@@ -24,6 +24,7 @@ Bei Problemen folgender Link:
 
 [link Board-Manager.](https://devarounder.de/esp32-board-in-arduino-ide-installieren-windows-mac-os-x-linux/). Die Bibliothek LoRa (von sandeepmistry) kann ebenso über den Library-Manager der Arduino IDE bezogen werden.
 
+Die Antenne des RFM95 (für Node und Gateway) besteht aus einem 8,3 cm langen Drahtstummel.
 Die Schaltpläne zeigen die Pin-Belegung der Komponenten und liegen als Bilddatei im png-Format vor.
 Im freien Gelände lassen sich Nachrichten bis 1,5 km übertragen. In städtischer Umgebung hingegen nur 150 m.
 Nach erfolgreicher Übertragung der Nachricht, kann ein Funkprotokoll ausgearbeitet werden und der ESP32 kann durch das integrierte Wlan-Modul ein privates Funknetz aufbauen.
