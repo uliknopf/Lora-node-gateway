@@ -11,6 +11,7 @@ Die andere Bibliothek tinySPI (von Jack Christensen) kann über den Library-Mana
 Alle anderen Bibliotheken sind Standard-Bibliotheken.
 Ein ATtiny85 verbraucht bei 3 Volt im normalen Betrieb ca. 1 mA. Bei einer Batteriekapazität von ca. 1000 mAh ergibt das eine ungefähre Laufzeit von 40 Tagen. Zu wenig, daher wird jeweils für 1/2 Sekunde der Tiefschlafmodus aufgerufen. Das ermöglicht eine mehrjährige Betriebszeit. (Allerdings muß dann der Taster zur Auslösung einer Funknachricht auch mindestens 1/2 Sekunde gedrückt werden.)
 Ich möchte noch erwähnen, daß im Schaltplan der Node, der MOSI-Pin des ATtiny85 an den MISO-Pin des RFM95 verbunden ist, und umgekehrt. Es handelt sich nicht um einen Druckfehler!
+
 ### Gateway: ###
 <img src="./gateway.jpg" width="200px" height="200">
 Für das Gateway habe ich ein ESP32 (30 Pin Ausführung) ausgewählt.
