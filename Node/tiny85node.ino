@@ -10,15 +10,15 @@
 #include <tinySPI.h>
 
 
-unsigned long cycle=1;//zählt die Zyklen
-
 int klingel = 3;//Arduino Pin 3 = physikalischer Pin 2
-int NSS=4;//Arduino Pin 4 = physikalischer Pin 3
-int sync_word=0x12;//privates Netz
+int NSS = 4;//Arduino Pin 4 = physikalischer Pin 3
+int sync_word = 0x12;//privates Netz
 RFM95_S rfm(NSS);  // (NSS)
 uint8_t Data[50];//Maximale Payloadlänge
 uint8_t Data_Length = 0x05;// 5Byte Gesamtlänge
-
+unsigned long cycle=1;//zählt die Zyklen
+unsigned long last_Cycle_event = 0;// Cycle-Zahl der letzten Sendung
+int sendepause = 60; // 60 Sekunden Pause zwischen Sendungen
 
 
 void setup()
@@ -50,9 +50,11 @@ ISR(WDT_vect)
 void loop()
 { 
     if (cycle%(117 *60 *1)==0 || digitalRead(klingel)==LOW) {// jede 1 h eine Messung
-      createData();
-      rfm.RFM_Send_Package(Data,Data_Length);
-      delay(1000);
+      if (sendepauseEnde()){
+        createData();
+        rfm.RFM_Send_Package(Data,Data_Length);
+        last_Cycle_event=cycle;
+      }
     }
 	
 	enterSleepMode();
@@ -84,6 +86,11 @@ void createData()
   Data[2]=3;
   Data[3]=klingeling;
   Data[4]=int(temp+100); // 20Grad C° sind dann 120 (keine negativen Werte) 
+}
+
+bool sendepauseEnde(){ 
+  if (last_Cycle_event + (sendepause*2) < cycle){return true;}
+  else{return false;} 
 }
 
 uint16_t readTemp() 
