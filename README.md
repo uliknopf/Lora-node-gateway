@@ -3,7 +3,7 @@ Node: ATtiny85 + RFM95 / Gateway: ESP32 + RFM95
 
 ## LoRa mit RFM95 Funkmodul. ##
  Mein Projekt widmet sich der Übertragung von Temperatur-Daten über LoRa-Funk <ins>ohne</ins> LoRaWAN als Funkprotokoll. Durch Energieoptimierung ist eine dreijährige Laufzeit der Node möglich. Dabei dient die Arduino IDE 2.2.1 als Entwicklungsumgebung.
- 
+ ---
 <img src="./node.jpg" width="200px" height="200">
 
 **Node:**
