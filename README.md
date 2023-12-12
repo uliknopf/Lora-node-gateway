@@ -1,7 +1,8 @@
-# Lora-node-gateway
----
+# Lora-node-gateway #
+Node: ATtiny85 + RFM95 / Gateway: ESP32 + RFM95
+
 ## LoRa mit RFM95 Funkmodul. ##
-#### Mein Projekt widmet sich der Übertragung von Temperatur-Daten über LoRa-Funk ohne LoRaWAN als Funkprotokoll. Durch Energieoptimierung ist eine dreijährige Laufzeit möglich. Dabei dient die Arduino IDE 2.2.1 als Entwicklungsumgebung. #### 
+ Mein Projekt widmet sich der Übertragung von Temperatur-Daten über LoRa-Funk <ins>ohne</ins> LoRaWAN als Funkprotokoll. Durch Energieoptimierung ist eine dreijährige Laufzeit der Node möglich. Dabei dient die Arduino IDE 2.2.1 als Entwicklungsumgebung.
 <img src="./node.jpg" width="200px" height="200">
 
 **Node:**
@@ -12,7 +13,7 @@ Die Bibliothek RFM95_S ist speziell für die geringe Leistung des ATtinys ausgel
 Die andere Bibliothek tinySPI (von Jack Christensen) kann über den Library-Manager der Arduino IDE bezogen werden. 
 Alle anderen Bibliotheken sind Standard-Bibliotheken.
 Ein ATtiny85 verbraucht bei 3 Volt im normalen Betrieb ca. 1 mA. Bei einer Batteriekapazität von ca. 1000 mAh ergibt das eine ungefähre Laufzeit von 40 Tagen. Zu wenig, daher wird jeweils für 1/2 Sekunde der Tiefschlafmodus aufgerufen. Das ermöglicht eine mehrjährige Betriebszeit. (Allerdings muß dann der Taster zur Auslösung einer Funknachricht auch mindestens 1/2 Sekunde gedrückt werden.)
-Der Temperatursensor des ATtiny85 gibt momentan nur eine ungefähre Temperatur an, denn er muß individuell kalibriert werden (siehe .ino file).
+Der Temperatursensor des ATtiny85 gibt momentan nur eine ungefähre Temperatur an, denn er muß individuell kalibriert werden (siehe .ino file, und es können auch keine negativen Werte gesendet werden).
 Ich möchte noch erwähnen, daß im Schaltplan der Node, der MOSI-Pin des ATtiny85 an den MISO-Pin des RFM95 verbunden ist, und umgekehrt. Es handelt sich nicht um einen Druckfehler!
 
 <img src="./gateway.jpg" width="200px" height="200">
